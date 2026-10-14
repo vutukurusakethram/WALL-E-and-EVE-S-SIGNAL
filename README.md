@@ -63,3 +63,10 @@ the inferred location, status, confidence, a recommended next step, and an evalu
 ASCII map + 4-panel matplotlib figure (path, clues, strategy changes, battery/entropy), noisy sensors, spoofed
 signals and decoy clues, and a generalisation benchmark over random missions with a classical greedy baseline.
 Not implemented: 3D/physics simulation, multi-agent coordination, LLM-vs-planner comparison.
+
+## Animation
+```bash
+python animate.py configs/mission_01.yaml                 # writes outputs/<name>/animation.gif
+python animate.py configs/mission_02_walls_noise_decoys.yaml --fps 10
+```
+Shows WALL-E moving, the belief heatmap updating after each scan, the battery draining, and the agent's reasoning text per step.

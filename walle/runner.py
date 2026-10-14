@@ -47,7 +47,7 @@ def run_mission(cfg, outdir=None, policy=None, max_steps=1500, verbose=False):
     snaps.append((step, agent.belief.p.copy()))
 
     report = build_report(info, agent, trace, env.truth(), env.end_reason, cfg)
-    result = {"report": report, "trace": trace, "agent": agent, "env": env}
+    result = {"report": report, "trace": trace, "agent": agent, "env": env, "snaps": snaps}
     if outdir:
         out = Path(outdir)
         out.mkdir(parents=True, exist_ok=True)
