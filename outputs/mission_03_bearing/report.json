@@ -1,0 +1,83 @@
+{
+  "mission": "mission_03_bearing_json",
+  "end_reason": "declared",
+  "status": "CONFIRMED",
+  "inferred_location": [
+    9,
+    4
+  ],
+  "confidence": 1.0,
+  "eve_status": "active",
+  "region_cells_90pct": 1,
+  "evidence": {
+    "initial_signal": {
+      "coords": [
+        9.899494936611665,
+        9.899494936611664
+      ],
+      "strength": 0.5,
+      "timestamp": -5,
+      "sigma": 6.8999999999999995
+    },
+    "scans": 6,
+    "strongest_readings": [
+      {
+        "pos": [
+          10,
+          3
+        ],
+        "reading": 0.8088
+      },
+      {
+        "pos": [
+          7,
+          4
+        ],
+        "reading": 0.5879
+      },
+      {
+        "pos": [
+          3,
+          10
+        ],
+        "reading": 0.3762
+      }
+    ],
+    "clues": [
+      {
+        "id": 2,
+        "kind": "weak beacon ping",
+        "pos": [
+          5,
+          6
+        ],
+        "estimate": [
+          10.32,
+          4.05
+        ],
+        "dist_to_inferred": 1.32,
+        "consistent": true
+      }
+    ],
+    "outlier_readings_possible_spoofs": []
+  },
+  "resources": {
+    "battery_left": 19,
+    "battery_full": 80,
+    "time_left": 195,
+    "steps": 50,
+    "scans": 6,
+    "recharges_used": 0
+  },
+  "recommended_next_step": "Return to the charger, recharge (2 left), then go to EVE at (9, 4): the one-way trip from the charger is 13 moves, a round trip costs 26 battery.",
+  "evaluation_only": {
+    "true_eve_position": [
+      9,
+      4
+    ],
+    "true_eve_status": "active",
+    "error_cells": 0.0,
+    "correct": true,
+    "decoy_clues_actually_present": 1
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "mission": "mission_02_walls_noise_decoys",
+  "end_reason": "declared",
+  "status": "CONFIRMED",
+  "inferred_location": [
+    18,
+    4
+  ],
+  "confidence": 1.0,
+  "eve_status": "active",
+  "region_cells_90pct": 1,
+  "evidence": {
+    "initial_signal": {
+      "coords": [
+        15.0,
+        14.0
+      ],
+      "strength": 0.4,
+      "timestamp": -12,
+      "sigma": 9.248
+    },
+    "scans": 6,
+    "strongest_readings": [
+      {
+        "pos": [
+          18,
+          5
+        ],
+        "reading": 0.8438
+      },
+      {
+        "pos": [
+          15,
+          14
+        ],
+        "reading": 0.3698
+      },
+      {
+        "pos": [
+          15,
+          9
+        ],
+        "reading": 0.3032
+      }
+    ],
+    "clues": [
+      {
+        "id": 0,
+        "kind": "tire tracks",
+        "pos": [
+          15,
+          6
+        ],
+        "estimate": [
+          19.0,
+          11.0
+        ],
+        "dist_to_inferred": 7.07,
+        "consistent": false
+      },
+      {
+        "id": 2,
+        "kind": "weak beacon ping",
+        "pos": [
+          13,
+          8
+        ],
+        "estimate": [
+          19.0,
+          3.86
+        ],
+        "dist_to_inferred": 1.01,
+        "consistent": true
+      },
+      {
+        "id": 5,
+        "kind": "tire tracks",
+        "pos": [
+          19,
+          10
+        ],
+        "estimate": [
+          12.0,
+          19.0
+        ],
+        "dist_to_inferred": 16.16,
+        "consistent": false
+      },
+      {
+        "id": 1,
+        "kind": "scorch marks",
+        "pos": [
+          19,
+          3
+        ],
+        "estimate": [
+          12.0,
+          18.0
+        ],
+        "dist_to_inferred": 15.23,
+        "consistent": false
+      }
+    ],
+    "outlier_readings_possible_spoofs": []
+  },
+  "resources": {
+    "battery_left": 39,
+    "battery_full": 80,
+    "time_left": 281,
+    "steps": 105,
+    "scans": 6,
+    "recharges_used": 1
+  },
+  "recommended_next_step": "Proceed to EVE at (18, 4): 1 moves (1 battery). Battery 39 covers the trip there and back to the charger with margin.",
+  "evaluation_only": {
+    "true_eve_position": [
+      18,
+      4
+    ],
+    "true_eve_status": "active",
+    "error_cells": 0.0,
+    "correct": true,
+    "decoy_clues_actually_present": 4
+  }
+}

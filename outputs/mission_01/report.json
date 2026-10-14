@@ -1,0 +1,97 @@
+{
+  "mission": "mission_01_open_field",
+  "end_reason": "declared",
+  "status": "CONFIRMED",
+  "inferred_location": [
+    19,
+    9
+  ],
+  "confidence": 1.0,
+  "eve_status": "active",
+  "region_cells_90pct": 1,
+  "evidence": {
+    "initial_signal": {
+      "coords": [
+        12.0,
+        8.0
+      ],
+      "strength": 0.7,
+      "timestamp": 0,
+      "sigma": 4.4
+    },
+    "scans": 3,
+    "strongest_readings": [
+      {
+        "pos": [
+          18,
+          10
+        ],
+        "reading": 0.605
+      },
+      {
+        "pos": [
+          15,
+          7
+        ],
+        "reading": 0.3657
+      },
+      {
+        "pos": [
+          0,
+          0
+        ],
+        "reading": -0.109
+      }
+    ],
+    "clues": [
+      {
+        "id": 2,
+        "kind": "weak beacon ping",
+        "pos": [
+          17,
+          7
+        ],
+        "estimate": [
+          17.6,
+          8.96
+        ],
+        "dist_to_inferred": 1.4,
+        "consistent": true
+      },
+      {
+        "id": 1,
+        "kind": "scorch marks",
+        "pos": [
+          17,
+          12
+        ],
+        "estimate": [
+          18.26,
+          8.07
+        ],
+        "dist_to_inferred": 1.19,
+        "consistent": true
+      }
+    ],
+    "outlier_readings_possible_spoofs": []
+  },
+  "resources": {
+    "battery_left": 63,
+    "battery_full": 100,
+    "time_left": 266,
+    "steps": 32,
+    "scans": 3,
+    "recharges_used": 0
+  },
+  "recommended_next_step": "Proceed to EVE at (19, 9): 2 moves (2 battery). Battery 63 covers the trip there and back to the charger with margin.",
+  "evaluation_only": {
+    "true_eve_position": [
+      19,
+      9
+    ],
+    "true_eve_status": "active",
+    "error_cells": 0.0,
+    "correct": true,
+    "decoy_clues_actually_present": 1
+  }
+}

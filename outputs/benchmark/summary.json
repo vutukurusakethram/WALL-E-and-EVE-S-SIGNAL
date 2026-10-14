@@ -1,0 +1,20 @@
+{
+  "eig": {
+    "missions": 40,
+    "confirmed_rate": 0.8,
+    "correct_rate": 0.925,
+    "mean_error_cells": 0.2625,
+    "mean_steps": 63.7,
+    "mean_scans": 4.35,
+    "mean_recharges": 0.825
+  },
+  "greedy": {
+    "missions": 40,
+    "confirmed_rate": 0.775,
+    "correct_rate": 0.9,
+    "mean_error_cells": 0.47450000000000003,
+    "mean_steps": 80.8,
+    "mean_scans": 5.625,
+    "mean_recharges": 1.075
+  }
+}

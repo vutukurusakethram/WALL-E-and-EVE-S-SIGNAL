@@ -1,0 +1,59 @@
+{
+  "name": "mission_01_open_field",
+  "seed": 7,
+  "map": {
+    "width": 20,
+    "height": 20,
+    "obstacles": [],
+    "obstacle_density": 0.0
+  },
+  "start": [
+    0,
+    0
+  ],
+  "eve": {
+    "position": null,
+    "status": "active"
+  },
+  "signal": {
+    "coords": [
+      12,
+      8
+    ],
+    "bearing_deg": null,
+    "range": null,
+    "strength": 0.7,
+    "timestamp": 0
+  },
+  "budget": {
+    "battery": 100,
+    "time": 300,
+    "max_recharges": 3
+  },
+  "costs": {
+    "move": 1,
+    "scan": 3,
+    "move_time": 1,
+    "scan_time": 2,
+    "recharge_time": 10
+  },
+  "sensor": {
+    "length_scale": 6.0,
+    "noise": 0.08,
+    "spoof_prob": 0.0,
+    "scan_radius": 3.0,
+    "detect_radius": 1.5
+  },
+  "clues": {
+    "count": 5,
+    "decoy_prob": 0.2,
+    "sigma": 1.5,
+    "list": null
+  },
+  "agent": {
+    "policy": "eig",
+    "safety_margin": 6,
+    "stop_confidence": 0.95,
+    "decoy_prior": 0.25
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "mission_03_bearing_json",
+  "seed": 3,
+  "map": {
+    "width": 16,
+    "height": 16,
+    "obstacles": [],
+    "obstacle_density": 0.1
+  },
+  "start": [
+    0,
+    0
+  ],
+  "eve": {
+    "position": null,
+    "status": "active"
+  },
+  "signal": {
+    "coords": null,
+    "bearing_deg": 45,
+    "range": 14,
+    "strength": 0.5,
+    "timestamp": -5
+  },
+  "budget": {
+    "battery": 80,
+    "time": 250,
+    "max_recharges": 2
+  },
+  "costs": {
+    "move": 1,
+    "scan": 3,
+    "move_time": 1,
+    "scan_time": 2,
+    "recharge_time": 10
+  },
+  "sensor": {
+    "length_scale": 6.0,
+    "noise": 0.08,
+    "spoof_prob": 0.0,
+    "scan_radius": 3.0,
+    "detect_radius": 1.5
+  },
+  "clues": {
+    "count": 4,
+    "decoy_prob": 0.25,
+    "sigma": 1.5,
+    "list": null
+  },
+  "agent": {
+    "policy": "eig",
+    "safety_margin": 6,
+    "stop_confidence": 0.95,
+    "decoy_prior": 0.25
+  }
+}
