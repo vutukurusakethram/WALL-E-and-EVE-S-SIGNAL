@@ -64,9 +64,11 @@ ASCII map + 4-panel matplotlib figure (path, clues, strategy changes, battery/en
 signals and decoy clues, and a generalisation benchmark over random missions with a classical greedy baseline.
 Not implemented: 3D/physics simulation, multi-agent coordination, LLM-vs-planner comparison.
 
-## Animation
+## Animation (heartbeat-sensor style)
 ```bash
 python animate.py configs/mission_01.yaml                 # writes outputs/<name>/animation.gif
 python animate.py configs/mission_02_walls_noise_decoys.yaml --fps 10
 ```
-Shows WALL-E moving, the belief heatmap updating after each scan, the battery draining, and the agent's reasoning text per step.
+Each scan sends out an expanding ping ring from WALL-E (brighter ring = stronger signal return). The belief glows green
+like heartbeat blips, a pulsing blip marks the current best estimate, and EVE is "locked" with a red pulse when confirmed.
+`animate_classic.py` gives the plain version.
