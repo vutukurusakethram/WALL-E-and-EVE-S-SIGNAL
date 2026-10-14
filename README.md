@@ -3,7 +3,14 @@
 An autonomous agent that searches a simulated grid world for EVE using only a weak initial signal,
 noisy scans and hidden clues, while managing a limited battery and time budget.
 
-## Quick start
+## Easiest way: the web control panel
+Press **Run** on `run.py` (or type `python run.py` with no arguments). Your browser opens a mission-control page with:
+a button per mission, a planner switch (EIG / Greedy), a seed box (new seed = EVE and clues hidden somewhere new),
+an "also make animation" option, **Run all missions**, a planner **benchmark**, and **unit tests**.
+Results (figure, heartbeat animation, step trace, ASCII map, report) show on the page. It uses only the standard library
+and runs on your own machine (127.0.0.1). Stop it with Ctrl+C or the Quit button.
+
+## Quick start (command line)
 ```bash
 pip install -r requirements.txt
 python run.py configs/mission_01.yaml            # easy demo

@@ -55,5 +55,6 @@
     "safety_margin": 6,
     "stop_confidence": 0.95,
     "decoy_prior": 0.25
-  }
+  },
+  "description": "Easy. Open map, clean sensor, strong hint. Best for understanding the basics."
 }

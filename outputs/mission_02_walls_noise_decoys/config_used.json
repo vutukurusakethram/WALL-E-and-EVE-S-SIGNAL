@@ -160,5 +160,6 @@
     "safety_margin": 5,
     "stop_confidence": 0.95,
     "decoy_prior": 0.3
-  }
+  },
+  "description": "Hard. Walls, noisy sensor, 10% spoofed readings, 40% decoy clues, weak stale hint. Forces a turn-back and recharge."
 }

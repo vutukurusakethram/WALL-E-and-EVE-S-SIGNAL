@@ -21,14 +21,12 @@ def random_cfg(seed):
     })
 
 
-if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--n", type=int, default=40)
-    ap.add_argument("--out", default="outputs/benchmark")
-    a = ap.parse_args()
-    Path(a.out).mkdir(parents=True, exist_ok=True)
+def run_benchmark(n=40, out="outputs/benchmark", progress=None):
+    Path(out).mkdir(parents=True, exist_ok=True)
     rows = []
-    for seed in range(a.n):
+    for seed in range(n):
+        if progress:
+            progress(seed, n)
         for pol in ("eig", "greedy"):
             try:
                 res = run_mission(random_cfg(seed), None, policy=pol)
@@ -39,7 +37,7 @@ if __name__ == "__main__":
                          "confirmed": rp["status"] == "CONFIRMED", "error": rp["evaluation_only"]["error_cells"],
                          "steps": rp["resources"]["steps"], "scans": rp["resources"]["scans"],
                          "recharges": rp["resources"]["recharges_used"], "end": rp["end_reason"]})
-    with open(Path(a.out) / "benchmark.csv", "w", newline="") as f:
+    with open(Path(out) / "benchmark.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
     summ = {}
     for pol in ("eig", "greedy"):
@@ -50,5 +48,13 @@ if __name__ == "__main__":
                      "mean_steps": float(np.mean([r["steps"] for r in R])),
                      "mean_scans": float(np.mean([r["scans"] for r in R])),
                      "mean_recharges": float(np.mean([r["recharges"] for r in R]))}
-    (Path(a.out) / "summary.json").write_text(json.dumps(summ, indent=2))
-    print(json.dumps(summ, indent=2))
+    (Path(out) / "summary.json").write_text(json.dumps(summ, indent=2))
+    return summ
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--n", type=int, default=40)
+    ap.add_argument("--out", default="outputs/benchmark")
+    a = ap.parse_args()
+    print(json.dumps(run_benchmark(a.n, a.out), indent=2))

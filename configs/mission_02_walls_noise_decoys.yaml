@@ -1,5 +1,6 @@
 # Hard demo: walls, noisy sensor, spoofed readings, decoy clues, small battery (forces recharge / turn-back).
 name: mission_02_walls_noise_decoys
+description: Hard. Walls, noisy sensor, 10% spoofed readings, 40% decoy clues, weak stale hint. Forces a turn-back and recharge.
 seed: 11
 map:
   width: 20

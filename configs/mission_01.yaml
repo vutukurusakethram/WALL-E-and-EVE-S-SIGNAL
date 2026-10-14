@@ -1,5 +1,6 @@
 # Easy demo: open map, clean sensors. Good for explaining the basics.
 name: mission_01_open_field
+description: Easy. Open map, clean sensor, strong hint. Best for understanding the basics.
 seed: 7
 map: {width: 20, height: 20, obstacles: []}
 start: [0, 0]

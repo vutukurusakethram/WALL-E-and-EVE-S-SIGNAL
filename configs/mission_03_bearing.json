@@ -1,9 +1,29 @@
 {
   "name": "mission_03_bearing_json",
+  "description": "Medium. JSON config, hint given as bearing + range, random obstacles, only 2 recharges.",
   "seed": 3,
-  "map": {"width": 16, "height": 16, "obstacle_density": 0.1},
-  "start": [0, 0],
-  "signal": {"bearing_deg": 45, "range": 14, "strength": 0.5, "timestamp": -5},
-  "budget": {"battery": 80, "time": 250, "max_recharges": 2},
-  "clues": {"count": 4, "decoy_prob": 0.25}
+  "map": {
+    "width": 16,
+    "height": 16,
+    "obstacle_density": 0.1
+  },
+  "start": [
+    0,
+    0
+  ],
+  "signal": {
+    "bearing_deg": 45,
+    "range": 14,
+    "strength": 0.5,
+    "timestamp": -5
+  },
+  "budget": {
+    "battery": 80,
+    "time": 250,
+    "max_recharges": 2
+  },
+  "clues": {
+    "count": 4,
+    "decoy_prob": 0.25
+  }
 }

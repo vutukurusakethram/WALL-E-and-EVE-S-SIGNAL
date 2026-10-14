@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
-"""Usage: python run.py configs/mission_01.yaml [--out outputs/mission_01] [--policy eig|greedy] [-v]"""
+"""WALL-E searches for EVE.
+
+* Press Run on this file (or `python run.py`) -> opens the web control panel in your browser.
+* Command line still works:  python run.py configs/mission_01.yaml [--out DIR] [--policy eig|greedy] [-v]
+"""
+import sys
+
+if len(sys.argv) == 1:
+    from walle.webui import serve
+    serve()
+    sys.exit(0)
+
 import argparse
 from pathlib import Path
 from walle.config import load_config

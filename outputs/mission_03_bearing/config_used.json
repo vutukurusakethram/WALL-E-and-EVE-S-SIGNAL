@@ -52,5 +52,6 @@
     "safety_margin": 6,
     "stop_confidence": 0.95,
     "decoy_prior": 0.25
-  }
+  },
+  "description": "Medium. JSON config, hint given as bearing + range, random obstacles, only 2 recharges."
 }
