@@ -98,6 +98,7 @@ def mission_payload(res, folder, cfg, policy):
     return {"kind": "mission", "config": cfg["name"], "policy": policy, "folder": folder, "report": res["report"], "trace": rows,
             "ascii": (out / "ascii_final.txt").read_text(), "report_md": (out / "report.md").read_text(),
             "overview_url": f"/files/{folder}/mission_overview.png?t={t}",
+            "map3d_url": f"/files/{folder}/map_3d.html?t={t}",
             "animation_url": f"/files/{folder}/animation.gif?t={t}" if anim.exists() else None}
 
 
@@ -309,11 +310,12 @@ async function job(url,data){
       if(j.status==='error'){main.innerHTML='<div class="box"><h2 class="fail">ERROR</h2><pre>'+esc(j.error)+'</pre></div>';break}}
   }catch(e){main.innerHTML='<div class="box fail">Lost connection to the server: '+esc(e)+'</div>'}
   setBusy(false)}
-function render(r){ if(r.kind==='mission'){cur=r;renderMission(r,'overview')} else if(r.kind==='all')renderAll(r); else if(r.kind==='benchmark')renderBench(r); else renderTests(r)}
+function render(r){ if(r.kind==='mission'){cur=r;renderMission(r,'map3d')} else if(r.kind==='all')renderAll(r); else if(r.kind==='benchmark')renderBench(r); else renderTests(r)}
 function renderMission(r,tab){
   const rp=r.report, ev=rp.evaluation_only, rs=rp.resources, conf=rp.status==='CONFIRMED';
-  const tabs=[['overview','Overview'],['animation','Animation'],['trace','Step trace'],['ascii','ASCII map'],['report','Report']];
+  const tabs=[['map3d','3D Map'],['overview','Overview'],['animation','Animation'],['trace','Step trace'],['ascii','ASCII map'],['report','Report']];
   let body='';
+  if(tab==='map3d')body='<div style="margin-bottom:6px"><a href="'+r.map3d_url+'" target="_blank" style="color:var(--g)">open 3D map in a new tab</a> <span class="muted">(drag to rotate, wheel to zoom, play/step at the bottom)</span></div><iframe src="'+r.map3d_url+'" style="width:100%;height:780px;border:1px solid var(--dg);background:#050b1e"></iframe>';
   if(tab==='overview')body='<img src="'+r.overview_url+'">';
   if(tab==='animation')body=r.animation_url?'<img src="'+r.animation_url+'">':'<div class="box">No animation yet for these settings. <button id="mk">GENERATE ANIMATION</button></div>';
   if(tab==='trace')body='<div class="scroll"><table><tr><th>#</th><th>decision</th><th>action</th><th>batt</th><th>pos</th><th>conf</th><th>reasoning</th></tr>'+

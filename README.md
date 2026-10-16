@@ -1,13 +1,55 @@
 # WALL-E and EVE's Signal
 
-An autonomous agent that searches a simulated grid world for EVE using only a weak initial signal,
-noisy scans and hidden clues, while managing a limited battery and time budget.
+**Project description.** An autonomous search agent for a simulated world. WALL-E must find EVE using only a vague initial
+signal, noisy scans and hidden clues, under a limited battery and time budget. The agent keeps a Bayesian probability map of
+EVE's location, picks the scan that teaches it the most per unit of battery, never goes where it cannot return from, turns
+back and recharges when needed, logs every decision with its reasoning, and finishes with a mission report (evidence,
+inferred location, confidence, recommended next step).
+
+**Setup (30 seconds).** Python 3.9+ required.
+```bash
+pip install -r requirements.txt     # numpy, matplotlib, pyyaml
+python run.py                       # opens the web control panel in your browser (press a mission's RUN button)
+```
+Command-line alternative: `python run.py configs/mission_02_walls_noise_decoys.yaml`
+
+## Results at a glance
+**3D map** (belief as rising columns, obstacles as glowing blocks, rover trail, clue pointers, EVE lock-on). Each mission has an
+interactive, self-contained viewer: open `outputs/<mission>/map_3d.html` in any browser (no server or internet needed): drag to rotate,
+wheel to zoom, play / pause / step / speed controls, and layer toggles (Belief Heatmap, Rover Trail, Clues, Ground Truth).
+The same viewer is the first tab of the web control panel.
+
+![3D map](outputs/mission_02_walls_noise_decoys/map_3d.png)
+
+Path, scans, clues, turn-back/recharge points, belief heatmaps and battery/entropy (mission 02, the hard one):
+
+![mission overview](outputs/mission_02_walls_noise_decoys/mission_overview.png)
+
+Heartbeat-sensor style animation of the same mission: `outputs/mission_02_walls_noise_decoys/animation.gif`
+
+![animation](outputs/mission_02_walls_noise_decoys/animation.gif)
+
+Evaluation on 40 random missions (EIG planner vs greedy baseline), data in `outputs/benchmark/benchmark.csv`:
+
+![benchmark](outputs/benchmark/benchmark_chart.png)
+
+| Mission | Outcome | Steps | Notes |
+|---|---|---|---|
+| mission_01 (easy) | EVE confirmed at (19, 9) | 32 | no recharge needed |
+| mission_02 (walls, noise, spoofs, decoys) | EVE confirmed at (18, 4) | 105 | one turn-back, one recharge |
+| mission_03 (JSON, bearing + range) | EVE confirmed at (9, 4) | 50 | |
+
+No model training is involved (the agent uses Bayesian inference), so there are no loss curves; the evaluation metrics are
+the benchmark above and the per-mission `report.md`. A full written explanation is in `WALL-E_EVE_Project_Explained.pdf`.
+Tests: `PYTHONPATH=. python tests/test_core.py` (Windows PowerShell: `$env:PYTHONPATH="."; python tests/test_core.py`).
+
+---
 
 ## Easiest way: the web control panel
 Press **Run** on `run.py` (or type `python run.py` with no arguments). Your browser opens a mission-control page with:
-a button per mission, a planner switch (EIG / Greedy), a seed box (new seed = EVE and clues hidden somewhere new),
+a button per mission (with a 3D map tab), a planner switch (EIG / Greedy), a seed box (new seed = EVE and clues hidden somewhere new),
 an "also make animation" option, **Run all missions**, a planner **benchmark**, and **unit tests**.
-Results (figure, heartbeat animation, step trace, ASCII map, report) show on the page. It uses only the standard library
+Results (3D map, figure, heartbeat animation, step trace, ASCII map, report) show on the page. It uses only the standard library
 and runs on your own machine (127.0.0.1). Stop it with Ctrl+C or the Quit button.
 
 ## Quick start (command line)

@@ -7,6 +7,7 @@ from .agent import Agent
 from .env import Environment
 from .report import build_report, to_markdown
 from . import viz
+from .map3d import export_map3d
 
 
 def _clean(o):
@@ -65,4 +66,5 @@ def run_mission(cfg, outdir=None, policy=None, max_steps=1500, verbose=False):
         viz.make_figure(out / "mission_overview.png", info["free"], snaps, trace, clues_f, info["start"],
                         env.eve, f"{cfg['name']}  -  {report['status']} at {tuple(report['inferred_location'])}, "
                         f"confidence {report['confidence']:.0%}  (policy: {agent.policy})", dr)
+        export_map3d(out / "map_3d.html", env, trace, snaps, report, cfg)
     return result
