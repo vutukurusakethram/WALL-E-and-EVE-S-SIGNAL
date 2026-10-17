@@ -14,9 +14,9 @@ python run.py                       # opens the web control panel in your browse
 Command-line alternative: `python run.py configs/mission_02_walls_noise_decoys.yaml`
 
 ## Results at a glance
-**3D room map**, blueprint / hologram style (wireframe walls with windows, amber crates as obstacles, a yellow WALL-E robot, belief as a glowing heat patch on the floor, rover trail, clue pointers, EVE shown as a glowing egg when found). Each mission has an
+**3D room map**, blueprint / hologram style (wireframe walls with windows, amber crates as obstacles, a yellow WALL-E robot, belief as a subtle floor tint with a dashed "likely zone" ring (optional Strong glow toggle), rover trail, clue pointers, EVE shown as a glowing egg when found). Each mission has an
 interactive, self-contained viewer: open `outputs/<mission>/map_3d.html` in any browser (no server or internet needed): drag to rotate,
-wheel to zoom, play / pause / step / speed controls, and layer toggles (Belief Heatmap, Rover Trail, Clues, Ground Truth) and Room / Top / Low-angle camera views.
+wheel to zoom, play / pause / step / speed controls, and layer toggles (Belief Heatmap, Rover Trail, Clues, Ground Truth, Strong glow) and Room / High / Low-angle camera views.
 The same viewer is the first tab of the web control panel.
 
 ![3D room map](outputs/mission_02_walls_noise_decoys/map_3d.png)
